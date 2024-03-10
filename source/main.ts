@@ -1,4 +1,5 @@
 import { INestApplication, Logger, ValidationPipe } from "@nestjs/common";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { NestFactory } from "@nestjs/core";
 
 import { AppModule } from "./app.module";
@@ -18,6 +19,12 @@ async function bootstrap(): Promise<void> {
 
     app.setGlobalPrefix(globalPrefix);
     app.useGlobalPipes(new ValidationPipe());
+
+    SwaggerModule.setup(
+        globalPrefix,
+        app,
+        SwaggerModule.createDocument(app, new DocumentBuilder().setTitle("NestJS Prisma OOP CRUD Boilerplate").build())
+    );
 
     await app.listen(configService.getPort());
 
