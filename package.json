@@ -8,11 +8,14 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"source/**/*.ts\"",
+    "lint": "eslint \"{source,apps,libs}/**/*.ts\" --fix",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{source,apps,libs}/**/*.ts\" --fix"
+    "prisma:migrate": "yarn prisma migrate dev",
+    "prisma:generate": "yarn prisma generate",
+    "prisma:seed" : "yarn ts-node ./prisma/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.3",
