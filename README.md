@@ -12,6 +12,8 @@
 
 OOP boilerplate for CRUD RestAPI using NestJS Framework and Prisma ORM
 
+Full implementation can be seen [here](https://github.com/trashtrack-team/trashtrack)
+
 ## Installation
 
 ```bash
