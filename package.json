@@ -12,7 +12,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/source/main",
     "prisma:migrate": "yarn prisma migrate dev",
     "prisma:generate": "yarn prisma generate",
     "prisma:seed" : "yarn ts-node ./prisma/seed.ts"
