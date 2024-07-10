@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, InternalServerErrorException } from "@
 
 import { Override } from "../../common/decorator/override";
 
-import { ExtendService } from "../../global/extend.service";
+import { DetailedService } from "../../global/Detailed.service";
 
 import { PrismaService } from "../../provider/prisma.service";
 
@@ -12,7 +12,7 @@ interface AuthorServiceInterface {}
 
 @Injectable()
 export class AuthorService
-    extends ExtendService<AuthorModel, AuthorCreateDTO, AuthorUpdateDTO>
+    extends DetailedService<AuthorModel, AuthorCreateDTO, AuthorUpdateDTO>
     implements AuthorServiceInterface
 {
     constructor(prismaService: PrismaService) {

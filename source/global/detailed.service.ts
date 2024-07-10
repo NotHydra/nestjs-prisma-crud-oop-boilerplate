@@ -4,28 +4,28 @@ import { PrismaModel } from "../common/interface/prisma-model";
 
 import { BaseService } from "./base.service";
 
-interface ExtendInterface {
-    [key: string]: { include: ExtendInterface } | boolean;
+interface DetailedInterface {
+    [key: string]: { include: DetailedInterface } | boolean;
 }
 
-export class ExtendService<ModelType, ModelCreateDTO, ModelUpdateDTO> extends BaseService<
+export class DetailedService<ModelType, ModelCreateDTO, ModelUpdateDTO> extends BaseService<
     ModelType,
     ModelCreateDTO,
     ModelUpdateDTO
 > {
-    protected readonly extend: ExtendInterface;
+    protected readonly detailed: DetailedInterface;
 
     constructor(
         serviceName: string,
         protected readonly prismaModel: PrismaModel<ModelType>,
-        extend: ExtendInterface
+        detailed: DetailedInterface
     ) {
         super(serviceName, prismaModel);
 
-        this.extend = extend;
+        this.detailed = detailed;
     }
 
-    public async findExtend(page: number = 0, count: number = 0): Promise<ModelType[]> {
+    public async findDetailed(page: number = 0, count: number = 0): Promise<ModelType[]> {
         try {
             let models: ModelType[];
 
@@ -33,43 +33,43 @@ export class ExtendService<ModelType, ModelCreateDTO, ModelUpdateDTO> extends Ba
                 models = await this.prismaModel.findMany({
                     skip: (page - 1) * count,
                     take: count,
-                    include: this.extend,
+                    include: this.detailed,
                 });
             } else {
-                models = await this.prismaModel.findMany({ include: this.extend });
+                models = await this.prismaModel.findMany({ include: this.detailed });
             }
 
-            this.loggerService.log(`Find Extend: ${JSON.stringify(models)}`);
+            this.loggerService.log(`Find Detailed: ${JSON.stringify(models)}`);
 
             return models;
         } catch (error) {
-            this.loggerService.error(`Find Extend: ${error.message}`);
+            this.loggerService.error(`Find Detailed: ${error.message}`);
             throw new InternalServerErrorException("Internal Server Error");
         }
     }
 
-    public async findIdExtend(id: number): Promise<ModelType> {
+    public async findIdDetailed(id: number): Promise<ModelType> {
         try {
             const model: ModelType = await this.prismaModel.findUnique({
                 where: { id },
-                include: this.extend,
+                include: this.detailed,
             });
 
             if (!model) {
                 throw new NotFoundException(`Id ${id} Not Found`);
             }
 
-            this.loggerService.log(`Find Id Extend: ${JSON.stringify(model)}`);
+            this.loggerService.log(`Find Id Detailed: ${JSON.stringify(model)}`);
 
             return model;
         } catch (error) {
             if (error instanceof NotFoundException) {
-                this.loggerService.error(`Find Id Extend: ${error.message}`);
+                this.loggerService.error(`Find Id Detailed: ${error.message}`);
                 throw error;
             }
 
-            this.loggerService.error(`Find Id Extend: ${error.message}`);
-            
+            this.loggerService.error(`Find Id Detailed: ${error.message}`);
+
             throw new InternalServerErrorException("Internal Server Error");
         }
     }
