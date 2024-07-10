@@ -69,6 +69,7 @@ export class ExtendService<ModelType, ModelCreateDTO, ModelUpdateDTO> extends Ba
             }
 
             this.loggerService.error(`Find Id Extend: ${error.message}`);
+            
             throw new InternalServerErrorException("Internal Server Error");
         }
     }

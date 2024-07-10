@@ -35,6 +35,7 @@ export class ExtendController<
             return response;
         } catch (error) {
             this.loggerService.error(`Find Extend: ${error.message}`);
+
             return formatResponse<null>(false, 500, error.message, null);
         }
     }
@@ -55,10 +56,12 @@ export class ExtendController<
         } catch (error) {
             if (error instanceof NotFoundException) {
                 this.loggerService.error(`Find Id Extend: ${error.message}`);
+
                 return formatResponse<null>(false, 404, error.message, null);
             }
 
             this.loggerService.error(`Find Id Extend: ${error.message}`);
+            
             return formatResponse<null>(false, 500, error.message, null);
         }
     }

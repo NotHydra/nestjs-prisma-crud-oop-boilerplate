@@ -52,6 +52,7 @@ export class BaseController<
             return response;
         } catch (error) {
             this.loggerService.error(`Find: ${error.message}`);
+
             return formatResponse<null>(false, 500, error.message, null);
         }
     }
@@ -72,10 +73,12 @@ export class BaseController<
         } catch (error) {
             if (error instanceof NotFoundException) {
                 this.loggerService.error(`Find Id: ${error.message}`);
+
                 return formatResponse<null>(false, 404, error.message, null);
             }
 
             this.loggerService.error(`Find Id: ${error.message}`);
+
             return formatResponse<null>(false, 500, error.message, null);
         }
     }
@@ -98,10 +101,12 @@ export class BaseController<
         } catch (error) {
             if (error instanceof BadRequestException) {
                 this.loggerService.error(`Add: ${error.message}`);
+
                 return formatResponse<null>(false, 400, error.message, null);
             }
 
             this.loggerService.error(`Add: ${error.message}`);
+
             return formatResponse<null>(false, 500, error.message, null);
         }
     }
@@ -125,15 +130,18 @@ export class BaseController<
         } catch (error) {
             if (error instanceof BadRequestException) {
                 this.loggerService.error(`Change: ${error.message}`);
+
                 return formatResponse<null>(false, 400, error.message, null);
             }
 
             if (error instanceof NotFoundException || error instanceof PrismaClientKnownRequestError) {
                 this.loggerService.error(`Change: ${error.message}`);
+
                 return formatResponse<null>(false, 404, error.message, null);
             }
 
             this.loggerService.error(`Change: ${error.message}`);
+
             return formatResponse<null>(false, 500, error.message, null);
         }
     }
@@ -154,10 +162,12 @@ export class BaseController<
         } catch (error) {
             if (error instanceof NotFoundException || error instanceof PrismaClientKnownRequestError) {
                 this.loggerService.error(`Remove: ${error.message}`);
+
                 return formatResponse<null>(false, 404, error.message, null);
             }
 
             this.loggerService.error(`Remove: ${error.message}`);
+
             return formatResponse<null>(false, 500, error.message, null);
         }
     }
