@@ -17,13 +17,10 @@ export class BaseService<ModelType, ModelCreateDTO, ModelUpdateDTO> {
 
     public async find(page: number = 0, count: number = 0): Promise<ModelType[]> {
         try {
-            let models: ModelType[];
-
-            if (page !== 0 && count !== 0) {
-                models = await this.prismaModel.findMany({ skip: (page - 1) * count, take: count });
-            } else {
-                models = await this.prismaModel.findMany();
-            }
+            const models: ModelType[] =
+                page !== 0 && count !== 0
+                    ? await this.prismaModel.findMany({ skip: (page - 1) * count, take: count })
+                    : await this.prismaModel.findMany();
 
             this.loggerService.log(`Find: ${JSON.stringify(models)}`);
 
@@ -143,7 +140,7 @@ export class BaseService<ModelType, ModelCreateDTO, ModelUpdateDTO> {
             }
 
             this.loggerService.error(`Remove: ${error.message}`);
-            
+
             throw new InternalServerErrorException("Internal Server Error");
         }
     }

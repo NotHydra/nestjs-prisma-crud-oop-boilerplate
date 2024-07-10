@@ -32,10 +32,12 @@ export class AuthorService
         } catch (error) {
             if (error instanceof BadRequestException) {
                 this.loggerService.error(`Add: ${error.message}`);
+                
                 throw error;
             }
 
             this.loggerService.error(`Add: ${error.message}`);
+
             throw new InternalServerErrorException("Internal Server Error");
         }
 
@@ -55,10 +57,12 @@ export class AuthorService
         } catch (error) {
             if (error instanceof BadRequestException) {
                 this.loggerService.error(`Change: ${error.message}`);
+
                 throw error;
             }
 
             this.loggerService.error(`Change: ${error.message}`);
+
             throw new InternalServerErrorException("Internal Server Error");
         }
 

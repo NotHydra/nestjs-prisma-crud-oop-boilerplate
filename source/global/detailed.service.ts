@@ -27,17 +27,14 @@ export class DetailedService<ModelType, ModelCreateDTO, ModelUpdateDTO> extends 
 
     public async findDetailed(page: number = 0, count: number = 0): Promise<ModelType[]> {
         try {
-            let models: ModelType[];
-
-            if (page !== 0 && count !== 0) {
-                models = await this.prismaModel.findMany({
-                    skip: (page - 1) * count,
-                    take: count,
-                    include: this.detailed,
-                });
-            } else {
-                models = await this.prismaModel.findMany({ include: this.detailed });
-            }
+            const models: ModelType[] =
+                page !== 0 && count !== 0
+                    ? await this.prismaModel.findMany({
+                          skip: (page - 1) * count,
+                          take: count,
+                          include: this.detailed,
+                      })
+                    : await this.prismaModel.findMany({ include: this.detailed });
 
             this.loggerService.log(`Find Detailed: ${JSON.stringify(models)}`);
 
