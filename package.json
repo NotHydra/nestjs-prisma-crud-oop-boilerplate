@@ -15,7 +15,7 @@
     "start:prod": "node dist/source/main",
     "prisma:migrate": "yarn prisma migrate dev",
     "prisma:generate": "yarn prisma generate",
-    "prisma:seed" : "yarn ts-node ./prisma/seed.ts"
+    "prisma:seed": "yarn ts-node ./prisma/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.3",
