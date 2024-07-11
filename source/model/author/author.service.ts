@@ -22,17 +22,13 @@ export class AuthorService
     @Override
     public async add(payload: AuthorCreateDTO): Promise<AuthorModel> {
         try {
-            if (!/^[a-zA-Z0-9_]+$/.test(payload.name)) {
-                throw new BadRequestException(`Name Must Contain Only Letters, Numbers, and Underscores`);
-            }
-
             if (payload.name.length < 3) {
                 throw new BadRequestException(`Name Must Be At Least 3 Characters Long`);
             }
         } catch (error) {
             if (error instanceof BadRequestException) {
                 this.loggerService.error(`Add: ${error.message}`);
-                
+
                 throw error;
             }
 
@@ -47,10 +43,6 @@ export class AuthorService
     @Override
     public async change(id: number, payload: AuthorUpdateDTO): Promise<AuthorModel> {
         try {
-            if (!/^[a-zA-Z0-9_]+$/.test(payload.name)) {
-                throw new BadRequestException(`Name Must Contain Only Letters, Numbers, and Underscores`);
-            }
-
             if (payload.name.length < 3) {
                 throw new BadRequestException(`Name Must Be At Least 3 Characters Long`);
             }

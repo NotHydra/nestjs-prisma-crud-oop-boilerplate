@@ -1,0 +1,40 @@
+@base_url = {{$dotenv REST_CLIENT_URL}}/api
+@url={{base_url}}/book
+
+GET {{url}}
+
+###
+
+GET {{url}}?page=1&count=5
+
+###
+
+GET {{url}}/id/1
+
+###
+
+POST {{url}}
+Content-Type: application/json
+
+{
+    "title": "Title 1",
+    "description": "Description 1",
+    "page": 1
+}
+
+###
+
+PUT {{url}}/id/1
+Content-Type: application/json
+
+{
+    "title": "Title 1",
+    "description": "Description 1",
+    "page": 1
+}
+
+###
+
+DELETE {{url}}/id/1
+
+###
