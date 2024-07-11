@@ -1,7 +1,7 @@
 import { BadRequestException, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
-import { PrismaModel } from "../common/interface/prisma-model";
+import { PrismaModelInterface } from "../common/interface/prisma-model.interface";
 
 import { LoggerService } from "../provider/logger.service";
 
@@ -10,7 +10,7 @@ export class BaseService<ModelType, ModelCreateDTO, ModelUpdateDTO> {
 
     constructor(
         serviceName: string,
-        protected readonly prismaModel: PrismaModel<ModelType>
+        protected readonly prismaModel: PrismaModelInterface<ModelType>
     ) {
         this.loggerService = new LoggerService(serviceName);
     }

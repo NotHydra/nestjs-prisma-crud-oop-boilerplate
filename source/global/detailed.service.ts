@@ -1,6 +1,6 @@
 import { InternalServerErrorException, NotFoundException } from "@nestjs/common";
 
-import { PrismaModel } from "../common/interface/prisma-model";
+import { PrismaModelInterface } from "../common/interface/prisma-model.interface";
 
 import { BaseService } from "./base.service";
 
@@ -17,7 +17,7 @@ export class DetailedService<ModelType, ModelCreateDTO, ModelUpdateDTO> extends 
 
     constructor(
         serviceName: string,
-        protected readonly prismaModel: PrismaModel<ModelType>,
+        protected readonly prismaModel: PrismaModelInterface<ModelType>,
         detailed: DetailedInterface
     ) {
         super(serviceName, prismaModel);

@@ -2,7 +2,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from "@nes
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { ResponseFormatInterface } from "../interface/response-format";
+import { ResponseFormatInterface } from "../interface/response-format.interface";
 
 export function formatResponse<T>(
     success: boolean,

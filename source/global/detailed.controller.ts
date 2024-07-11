@@ -1,6 +1,6 @@
 import { Get, NotFoundException, Param, ParseIntPipe, Query } from "@nestjs/common";
 
-import { ResponseFormatInterface } from "../common/interface/response-format";
+import { ResponseFormatInterface } from "../common/interface/response-format.interface";
 
 import { formatResponse } from "../common/interceptor/response-format.interceptor";
 

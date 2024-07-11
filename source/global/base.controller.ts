@@ -12,7 +12,7 @@ import {
 } from "@nestjs/common";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
-import { ResponseFormatInterface } from "../common/interface/response-format";
+import { ResponseFormatInterface } from "../common/interface/response-format.interface";
 
 import { formatResponse } from "../common/interceptor/response-format.interceptor";
 
