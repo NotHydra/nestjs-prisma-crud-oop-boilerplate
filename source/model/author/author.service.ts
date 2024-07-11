@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, InternalServerErrorException } from "@nestjs/common";
 
-import { Override } from "../../common/decorator/override.decorator";
+import { Override } from "./../../common/decorator/override.decorator";
 
 import { DetailedService } from "../../global/Detailed.service";
 

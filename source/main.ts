@@ -5,6 +5,8 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { ConfigService } from "./config/config.service";
 
+import { capitalize } from "./utility/capitalize";
+
 async function bootstrap(): Promise<void> {
     const app: INestApplication<AppModule> = await NestFactory.create<INestApplication<AppModule>>(AppModule);
 
@@ -17,6 +19,7 @@ async function bootstrap(): Promise<void> {
         methods: "*",
     });
 
+    app.useLogger(configService.getLogLevel());
     app.setGlobalPrefix(globalPrefix);
     app.useGlobalPipes(new ValidationPipe());
 
@@ -28,7 +31,13 @@ async function bootstrap(): Promise<void> {
 
     await app.listen(configService.getPort());
 
-    Logger.log(`🚀 Application is running on: http://localhost:${configService.getPort()}/${globalPrefix}`);
+    Logger.log(
+        `🛠️  Log Level: [${configService
+            .getLogLevel()
+            .map((level: string) => capitalize(level))
+            .join(", ")}]`
+    );
+    Logger.log(`🚀 Application: http://localhost:${configService.getPort()}/${globalPrefix}`);
 }
 
 bootstrap();
