@@ -1,4 +1,5 @@
 import { Prisma } from "@prisma/client";
+
 import { IsDate, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class AuthorModel implements Prisma.AuthorCreateInput {

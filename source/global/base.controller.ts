@@ -12,11 +12,11 @@ import {
 } from "@nestjs/common";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
-import { ResponseFormatInterface } from "../common/interface/response-format.interface";
+import { ResponseFormatInterface } from "./../common/interface/response-format.interface";
+import { formatResponse } from "./../common/interceptor/response-format.interceptor";
 
-import { formatResponse } from "../common/interceptor/response-format.interceptor";
+import { LoggerService } from "./../provider/logger.service";
 
-import { LoggerService } from "../provider/logger.service";
 import { BaseService } from "./base.service";
 
 export class BaseController<

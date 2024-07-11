@@ -1,4 +1,5 @@
 import { Prisma } from "@prisma/client";
+
 import { IsArray, IsDate, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class BookModel implements Prisma.BookCreateInput {

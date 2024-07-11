@@ -1,7 +1,7 @@
 import { LogLevel, ValidationError } from "@nestjs/common";
 
 import { plainToInstance } from "class-transformer";
-import { IsString, IsNumber, validateSync, IsArray } from "class-validator";
+import { IsString, IsNumber, validateSync } from "class-validator";
 
 class EnvironmentVariables {
     LOG_LEVEL: LogLevel[];

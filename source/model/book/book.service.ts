@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
-import { BaseService } from "../../global/base.service";
+import { PrismaService } from "./../../provider/prisma.service";
 
-import { PrismaService } from "../../provider/prisma.service";
+import { BaseService } from "./../../global/base.service";
 
 import { BookModel, BookCreateDTO, BookUpdateDTO } from "./book";
 

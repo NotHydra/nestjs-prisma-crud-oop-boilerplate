@@ -2,9 +2,9 @@ import { BadRequestException, Injectable, InternalServerErrorException } from "@
 
 import { Override } from "./../../common/decorator/override.decorator";
 
-import { DetailedService } from "../../global/Detailed.service";
+import { PrismaService } from "./../../provider/prisma.service";
 
-import { PrismaService } from "../../provider/prisma.service";
+import { DetailedService } from "./../../global/detailed.service";
 
 import { AuthorModel, AuthorCreateDTO, AuthorUpdateDTO } from "./author";
 

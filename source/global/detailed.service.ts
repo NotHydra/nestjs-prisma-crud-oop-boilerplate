@@ -1,6 +1,6 @@
 import { InternalServerErrorException, NotFoundException } from "@nestjs/common";
 
-import { PrismaModelInterface } from "../common/interface/prisma-model.interface";
+import { PrismaModelInterface } from "./../common/interface/prisma-model.interface";
 
 import { BaseService } from "./base.service";
 

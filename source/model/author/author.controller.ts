@@ -1,8 +1,8 @@
 import { Controller, UseInterceptors } from "@nestjs/common";
 
-import { ResponseFormatInterceptor } from "../../common/interceptor/response-format.interceptor";
+import { ResponseFormatInterceptor } from "./../../common/interceptor/response-format.interceptor";
 
-import { DetailedController } from "../../global/detailed.controller";
+import { DetailedController } from "./../../global/detailed.controller";
 
 import { AuthorModel, AuthorCreateDTO, AuthorUpdateDTO } from "./author";
 import { AuthorService } from "./author.service";
