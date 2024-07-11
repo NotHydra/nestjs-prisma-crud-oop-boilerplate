@@ -111,7 +111,7 @@ export class BaseController<
         }
     }
 
-    @Put(":id")
+    @Put("id/:id")
     public async change(
         @Param("id", ParseIntPipe) id: number,
         @Body() payload: ModelUpdateDTO
@@ -146,7 +146,7 @@ export class BaseController<
         }
     }
 
-    @Delete(":id")
+    @Delete("id/:id")
     public async remove(@Param("id", ParseIntPipe) id: number): Promise<ResponseFormatInterface<ModelType>> {
         try {
             const response: ResponseFormatInterface<ModelType> = formatResponse<ModelType>(
