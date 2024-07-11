@@ -46,7 +46,7 @@ export class DetailedController<
             const response: ResponseFormatInterface<ModelType> = formatResponse<ModelType>(
                 true,
                 200,
-                "Detailed Id Found",
+                `Detailed Id ${id} Found`,
                 await this.modelService.findIdDetailed(id)
             );
 

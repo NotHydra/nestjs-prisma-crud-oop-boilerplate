@@ -63,7 +63,7 @@ export class BaseController<
             const response: ResponseFormatInterface<ModelType> = formatResponse<ModelType>(
                 true,
                 200,
-                "Id Found",
+                `Id ${id} Found`,
                 await this.modelService.findId(id)
             );
 
@@ -120,7 +120,7 @@ export class BaseController<
             const response: ResponseFormatInterface<ModelType> = formatResponse<ModelType>(
                 true,
                 200,
-                "Changed",
+                `Id ${id} Changed`,
                 await this.modelService.change(id, payload)
             );
 
@@ -152,7 +152,7 @@ export class BaseController<
             const response: ResponseFormatInterface<ModelType> = formatResponse<ModelType>(
                 true,
                 200,
-                "Removed",
+                `Id ${id} Removed`,
                 await this.modelService.remove(id)
             );
 
