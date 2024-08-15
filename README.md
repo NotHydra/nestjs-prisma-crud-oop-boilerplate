@@ -12,7 +12,11 @@
 
 OOP boilerplate for CRUD RestAPI using NestJS Framework and Prisma ORM
 
-Full implementation can be seen [here](https://github.com/trashtrack-team/trashtrack)
+Full implementation can be seen here:
+
+[TrashTrack](https://github.com/trashtrack-team/trashtrack)
+  
+[PARI (PApaya Ripeness Identification)](https://github.com/NotHydra/pari)
 
 ## Installation
 
